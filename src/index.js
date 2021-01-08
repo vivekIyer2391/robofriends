@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from "react-redux";
+import { createStore } from "redux";
 import './index.css';
-import Cardlist from "./components/Cardlist";
+// import Cardlist from "./components/Cardlist";
 import reportWebVitals from './reportWebVitals';
 import 'tachyons';
 import App  from "./containers/App";
+import { searchRobots } from "./reducers";
 import {robots} from "./robots";
 
-ReactDOM.render(<App />,
+const store =createStore(searchRobots);
+
+ReactDOM.render(<App store={store}/>,
   document.getElementById('root')
 );
 
